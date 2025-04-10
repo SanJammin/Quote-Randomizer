@@ -38,9 +38,20 @@ const quoteText = document.getElementById("quote-text");
 const quoteAuthor = document.getElementById("quote-author");
 
 function generateQuote() {
-    const randomQuote = Math.floor(Math.random()*quotes.length);
-    let selectedQuote = quotes[randomQuote].text;
-    quoteText.textContent = `${selectedQuote}`
+    const randomIndex = Math.floor(Math.random()*quotes.length);
+    let selected = quotes[randomIndex];
+    quoteText.textContent = selected.text;
+    quoteAuthor.textContent = `- ${selected.author}`;
+
+    setTimeout(() => {
+        const randomIndex = Math.floor(Math.random() * quotes.length);
+        const selected = quotes[randomIndex];
+        quoteText.textContent = selected.text;
+        quoteAuthor.textContent = `– ${selected.author}`;
+        
+        quoteText.classList.remove("fade");
+        quoteAuthor.classList.remove("fade");
+      }, 200);
 };
 
 generateBtn.addEventListener("click", () => {
