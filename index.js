@@ -31,5 +31,18 @@ const quotes = [
       text: "Build things you wish existed.",
       author: "Sahil Lavingia"
     }
-  ];
-  
+];
+
+const generateBtn = document.getElementById("generate-btn");
+const quoteText = document.getElementById("quote-text");
+const quoteAuthor = document.getElementById("quote-author");
+
+function generateQuote() {
+    const randomQuote = Math.floor(Math.random()*quotes.length);
+    let selectedQuote = quotes[randomQuote].text;
+    quoteText.textContent = `${selectedQuote}`
+};
+
+generateBtn.addEventListener("click", () => {
+    generateQuote();
+});
